@@ -1,0 +1,29 @@
+name: Build & Deploy Site (Daily)
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 2 * * *'   # 02:00 UTC mỗi ngày
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build static pages
+        run: |
+          python scripts/build.py
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
