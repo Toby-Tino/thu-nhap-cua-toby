@@ -1,0 +1,40 @@
+[
+  {
+    "slug": "phi-tra-no-truoc-han-ngan-hang-x",
+    "title": "Tính phí trả nợ trước hạn ngân hàng X",
+    "h1": "Tính phí trả nợ trước hạn – Ngân hàng X",
+    "meta": "Công cụ ước tính phí trả nợ trước hạn theo dư nợ và tỷ lệ phí (tham khảo).",
+    "intro": "Nhập dư nợ còn lại, số tháng còn lại và tỷ lệ phí dự kiến.",
+    "fields": [
+      {"id":"du_no","label":"Dư nợ còn lại (VND)","type":"number","value":"200000000"},
+      {"id":"thang","label":"Số tháng còn lại","type":"number","value":"12"},
+      {"id":"tyle","label":"Tỷ lệ phí (%)","type":"number","value":"2"}
+    ],
+    "js_calc": "var phi=du_no*(tyle/100); var html='<h3>Kết quả</h3><p>Ước tính phí: <strong>'+fmt(phi)+'</strong> VND</p><p class=small>Giả định phí = '+(tyle).toFixed(2)+'% trên dư nợ còn lại.</p>'; document.getElementById('result').innerHTML=html;",
+    "affiliate": {
+      "url": "https://example-affiliate.com/?utm_source=tinhphi",
+      "text": "Xem ưu đãi tái cấp vốn tốt hơn »"
+    },
+    "faq_html": "<p><strong>Lưu ý:</strong> Mỗi ngân hàng có biểu phí khác nhau theo giai đoạn hợp đồng. Kết quả chỉ tham khảo.</p>",
+    "disclaimer":"Không phải tư vấn tài chính."
+  },
+  {
+    "slug": "tinh-lai-gui-tiet-kiem",
+    "title": "Tính lãi gửi tiết kiệm (tham khảo)",
+    "h1": "Tính lãi gửi tiết kiệm",
+    "meta": "Ước tính lãi nhận theo số tiền, kỳ hạn (tháng) và lãi suất năm (tham khảo).",
+    "intro": "Nhập số tiền gửi, kỳ hạn và lãi suất năm (%). Công cụ dùng lãi đơn ước tính.",
+    "fields": [
+      {"id":"so_tien","label":"Số tiền gửi (VND)","type":"number","value":"100000000"},
+      {"id":"ky_han","label":"Kỳ hạn (tháng)","type":"number","value":"12"},
+      {"id":"lai_nam","label":"Lãi suất năm (%)","type":"number","value":"6"}
+    ],
+    "js_calc": "var r=(lai_nam/100)/12; var interest=so_tien*r*ky_han; var total=so_tien+interest; var html='<h3>Kết quả</h3><p>Lãi ước tính: <strong>'+fmt(interest)+'</strong> VND</p><p>Tổng nhận: <strong>'+fmt(total)+'</strong> VND</p><p class=small>Giả định lãi đơn theo tháng; chỉ tham khảo.</p>'; document.getElementById('result').innerHTML=html;",
+    "affiliate": {
+      "url": "https://example-affiliate.com/savings?utm_source=tinhphi",
+      "text": "Xem lãi suất gửi tiết kiệm hiện hành »"
+    },
+    "faq_html": "<p>Lãi thực tế phụ thuộc chính sách ngân hàng (lãi đơn/lãi kép, trả trước/sau).</p>",
+    "disclaimer":"Không phải tư vấn tài chính."
+  }
+]
